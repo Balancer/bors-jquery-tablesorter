@@ -1,0 +1,24 @@
+{
+    "name": "bors/jquery-tablesorter",
+
+    "authors": [
+        {
+            "name": "Balancer",
+            "email": "balancer@balancer.ru"
+        }
+    ],
+
+    "require": {
+        "balancer/bors-core": "*"
+    },
+
+	"suggest": {
+		"bower-asset/jquery.tablesorter": "Needed if you want use local asset instead CDN"
+	},
+
+	"autoload": {
+		"psr-4": {
+			"B2\\Jquery\\": "./"
+		}
+	}
+}
