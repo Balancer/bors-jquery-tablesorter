@@ -9,7 +9,7 @@
     ],
 
     "require": {
-        "balancer/bors-core": "*"
+        "bors/jquery": "*"
     },
 
 	"suggest": {
@@ -18,7 +18,7 @@
 
 	"autoload": {
 		"psr-4": {
-			"B2\\Jquery\\": "./"
+			"B2\\jQuery\\": "./"
 		}
 	}
 }
