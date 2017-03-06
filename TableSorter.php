@@ -30,6 +30,8 @@ class TableSorter extends \B2\jQuery\Plugin
 
 	<!-- tablesorter widgets (optional) -->
 	<script type="text/javascript" src="/path/to/jquery.tablesorter.widgets.js"></script>
+
+	https://mottie.github.io/tablesorter/docs/example-option-theme-bootstrap-v3.html
 */
 	static function apply($element=NULL)
 	{
@@ -37,9 +39,37 @@ class TableSorter extends \B2\jQuery\Plugin
 			$element = "'.tablesorter'";
 
 		\B2\jQuery::load();
+//		bors_use('https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.5/css/theme.blue.min.css');
 //		bors_use('https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.5/css/theme.default.min.css');
 		bors_use('https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.5/css/theme.bootstrap_3.min.css');
 		\B2\jQuery::plugin('https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.5/js/jquery.tablesorter.js');
-		\B2\jQuery::on_ready("\$({$element}).tablesorter();");
+		\B2\jQuery::plugin('https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.5/js/jquery.tablesorter.widgets.js');
+		\B2\jQuery::on_ready("
+	\$.tablesorter.themes.bootstrap = {
+		table		: 'table table-bordered table-striped',
+		caption	  : 'caption',
+		header	   : 'bootstrap-header',
+		sortNone	 : '',
+		sortAsc	  : '',
+		sortDesc	 : '',
+		active	   : '',
+		hover		: '',
+		icons		: '',
+		iconSortNone : 'bootstrap-icon-unsorted',
+		iconSortAsc  : 'glyphicon glyphicon-chevron-up',
+		iconSortDesc : 'glyphicon glyphicon-chevron-down',
+		filterRow	: '',
+		footerRow	: '',
+		footerCells  : '',
+		even		 : '',
+		odd		  : '' 
+	};
+
+	\$({$element}).tablesorter({
+		theme : 'bootstrap',
+		headerTemplate : '{content} {icon}',
+		widgets : [ 'uitheme'],
+	});
+");
 	}
 }
